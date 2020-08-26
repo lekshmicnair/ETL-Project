@@ -30,8 +30,8 @@ CREATE TABLE "TMDB_Vote_Count" (
 
 CREATE TABLE "IMDB_Data" (
     "Movie_title" VARCHAR   NOT NULL,
-    "Budget" INT   NOT NULL,
-    "Gross" INT   NOT NULL,
+    "Budget" FLOAT   NOT NULL,
+    "Gross" FLOAT   NOT NULL,
     "Country" VARCHAR   NOT NULL,
     "Company" VARCHAR   NOT NULL,
     "Director" VARCHAR   NOT NULL,
