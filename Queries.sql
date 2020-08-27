@@ -35,3 +35,20 @@ INNER JOIN "Wiki_Plots" wiki ON
 tmdb."Movie_title"=wiki."Movie_title"
 where tmdb."Runtime">='60' AND tmdb."Runtime"<='120';
 
+-- Highest grosses from movies with budgets under $500,000
+Select imdb."Movie_title", tmdb."Release_date", imdb."Budget",imdb."Gross", imdb."Director", imdb."Star" from "IMDB_Data" imdb
+INNER JOIN "TMDB_Data" tmdb ON
+imdb."Movie_title"=tmdb."Movie_title"
+where imdb."Budget" < 500000
+AND imdb."Budget" > 0
+Order by imdb."Gross" desc;
+
+-- Movies that lost money
+Select imdb."Movie_title", tmdb."Release_date", imdb."Budget",imdb."Gross", imdb."Director", imdb."Star" from "IMDB_Data" imdb
+INNER JOIN "TMDB_Data" tmdb ON
+imdb."Movie_title"=tmdb."Movie_title"
+where imdb."Budget" > imdb."Gross";
+
+-- Movies about the end of the world
+Select wiki."Movie_title", wiki."Plot" from "Wiki_Plots" wiki
+where wiki."Plot" LIKE '%end of the world%';
